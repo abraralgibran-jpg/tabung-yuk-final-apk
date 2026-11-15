@@ -11,6 +11,7 @@ jobs:
   build:
     name: Build APK with Gradle
     runs-on: ubuntu-latest
+    timeout-minutes: 30
 
     steps:
       - name: Checkout Repository
@@ -21,42 +22,42 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '17'
+          cache: 'gradle'
 
       - name: Find Project Directory
         id: find-dir
         run: |
-          # Cari folder root proyek yang memiliki settings.gradle
-          SETTINGS_FILE=$(find . -name "settings.gradle" -o -name "settings.gradle.kts" | head -n 1)
+          SETTINGS_FILE=$(find . -type f \( -name "settings.gradle" -o -name "settings.gradle.kts" \) | grep -v "/build/" | head -n 1)
           if [ -n "$SETTINGS_FILE" ]; then
             PROJECT_DIR=$(dirname "$SETTINGS_FILE")
           else
-            GRADLEW_FILE=$(find . -name "gradlew" | head -n 1)
+            GRADLEW_FILE=$(find . -type f -name "gradlew" | head -n 1)
             PROJECT_DIR=$(dirname "$GRADLEW_FILE")
           fi
-          echo "project_dir=$PROJECT_DIR" >> $GITHUB_OUTPUT
+          echo "project_dir=$PROJECT_DIR" >> "$GITHUB_OUTPUT"
           echo "Folder root proyek ditemukan di: $PROJECT_DIR"
+
+      - name: Prepare gradle.properties
+        working-directory: ${{ steps.find-dir.outputs.project_dir }}
+        run: |
+          touch gradle.properties
+          grep -q "^android.useAndroidX=true" gradle.properties || printf '\nandroid.useAndroidX=true\n' >> gradle.properties
+          grep -q "^android.enableJetifier=true" gradle.properties || printf '\nandroid.enableJetifier=true\n' >> gradle.properties
 
       - name: Build APK
         working-directory: ${{ steps.find-dir.outputs.project_dir }}
         run: |
           if [ -f "./gradlew" ]; then
             chmod +x ./gradlew
-            ./gradlew assembleDebug
+            ./gradlew assembleDebug --no-daemon --stacktrace
           else
             echo "gradlew tidak ditemukan, menggunakan gradle sistem..."
-            gradle assembleDebug
+            gradle assembleDebug --no-daemon --stacktrace
           fi
-
-          if [ ! -f "gradle.properties" ]; then
-            touch gradle.properties
-          fi
-          echo "android.useAndroidX=true" >> gradle.properties
-          echo "android.enableJetifier=true" >> gradle.properties
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
           name: app-debug-apk
-          path: |
-            **/build/outputs/apk/debug/*.apk
-            **/build/outputs/apk/**/*.apk
+          path: "**/build/outputs/apk/debug/*.apk"
+          if-no-files-found: error
