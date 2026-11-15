@@ -1,0 +1,15 @@
+<resources>
+    <color name="ic_launcher_background">#0A9C8C</color>
+    <color name="w_bg">#FFFFFF</color>
+    <color name="w_fg">#111111</color>
+    <color name="w_mut">#6B7280</color>
+    <color name="w_track">#E5E7EB</color>
+    <color name="w_ac">#0B8A4B</color>
+    <color name="w_sv">#BDEBD0</color>
+    <color name="w_red_soft">#F9D2D2</color>
+    <color name="w_miss">#FDF0F0</color>
+    <color name="w_gold">#FBE3A6</color>
+    <color name="w_btn">#111111</color>
+    <color name="w_btn_fg">#FFFFFF</color>
+    <color name="w_ph">#E3F4EA</color>
+</resources>
