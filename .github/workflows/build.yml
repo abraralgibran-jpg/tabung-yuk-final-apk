@@ -25,11 +25,16 @@ jobs:
       - name: Find Project Directory
         id: find-dir
         run: |
-          # Mencari folder proyek yang memiliki build.gradle di seluruh subfolder
-          GRADLE_FILE=$(find . -name "build.gradle" -o -name "build.gradle.kts" | head -n 1)
-          PROJECT_DIR=$(dirname "$GRADLE_FILE")
+          # Cari folder root proyek yang memiliki settings.gradle
+          SETTINGS_FILE=$(find . -name "settings.gradle" -o -name "settings.gradle.kts" | head -n 1)
+          if [ -n "$SETTINGS_FILE" ]; then
+            PROJECT_DIR=$(dirname "$SETTINGS_FILE")
+          else
+            GRADLEW_FILE=$(find . -name "gradlew" | head -n 1)
+            PROJECT_DIR=$(dirname "$GRADLEW_FILE")
+          fi
           echo "project_dir=$PROJECT_DIR" >> $GITHUB_OUTPUT
-          echo "Folder proyek ditemukan di: $PROJECT_DIR"
+          echo "Folder root proyek ditemukan di: $PROJECT_DIR"
 
       - name: Build APK
         working-directory: ${{ steps.find-dir.outputs.project_dir }}
@@ -38,7 +43,7 @@ jobs:
             chmod +x ./gradlew
             ./gradlew assembleDebug
           else
-            echo "gradlew tidak ada, menggunakan gradle sistem..."
+            echo "gradlew tidak ditemukan, menggunakan gradle sistem..."
             gradle assembleDebug
           fi
 
