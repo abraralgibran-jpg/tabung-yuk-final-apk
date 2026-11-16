@@ -11,8 +11,8 @@ android {
         applicationId = "com.example.tabung"
         minSdk = 24
         targetSdk = 34
-        versionCode = 29
-        versionName = "2.9.3"
+        versionCode = 50
+        versionName = "5.5.5"
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
