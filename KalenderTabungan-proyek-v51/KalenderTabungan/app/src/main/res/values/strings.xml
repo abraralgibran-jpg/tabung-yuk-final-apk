@@ -1,7 +1,0 @@
-<resources>
-    <string name="app_name">Tabung Yuk</string>
-    <string name="w1_name">Tabungan</string>
-    <string name="w1_desc">Gambar, jumlah terkumpul, dan sisa tabungan</string>
-    <string name="w2_name">Kalender tabungan</string>
-    <string name="w2_desc">Kalender bulanan: hari yang sudah menabung</string>
-</resources>
