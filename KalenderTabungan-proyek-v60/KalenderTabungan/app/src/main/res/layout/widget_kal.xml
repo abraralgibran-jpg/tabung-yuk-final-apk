@@ -1,0 +1,141 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:background="@drawable/widget_bg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/ttl"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:maxLines="1"
+            android:textColor="@color/w_fg"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/pv"
+            style="@style/WBtn"
+            android:text="‹" />
+        <TextView
+            android:id="@+id/nx"
+            style="@style/WBtn"
+            android:text="›" />
+        <TextView
+            android:id="@+id/f"
+            style="@style/WBtn"
+            android:background="@drawable/widget_btn"
+            android:textColor="@color/w_btn_fg"
+            android:text="+" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="18dp"
+        android:layout_marginTop="2dp"
+        android:orientation="horizontal">
+        <TextView style="@style/WDay" android:text="M" />
+        <TextView style="@style/WDay" android:text="S" />
+        <TextView style="@style/WDay" android:text="S" />
+        <TextView style="@style/WDay" android:text="R" />
+        <TextView style="@style/WDay" android:text="K" />
+        <TextView style="@style/WDay" android:text="J" />
+        <TextView style="@style/WDay" android:text="S" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+        <TextView android:id="@+id/c0" style="@style/WCell" />
+        <TextView android:id="@+id/c1" style="@style/WCell" />
+        <TextView android:id="@+id/c2" style="@style/WCell" />
+        <TextView android:id="@+id/c3" style="@style/WCell" />
+        <TextView android:id="@+id/c4" style="@style/WCell" />
+        <TextView android:id="@+id/c5" style="@style/WCell" />
+        <TextView android:id="@+id/c6" style="@style/WCell" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+        <TextView android:id="@+id/c7" style="@style/WCell" />
+        <TextView android:id="@+id/c8" style="@style/WCell" />
+        <TextView android:id="@+id/c9" style="@style/WCell" />
+        <TextView android:id="@+id/c10" style="@style/WCell" />
+        <TextView android:id="@+id/c11" style="@style/WCell" />
+        <TextView android:id="@+id/c12" style="@style/WCell" />
+        <TextView android:id="@+id/c13" style="@style/WCell" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+        <TextView android:id="@+id/c14" style="@style/WCell" />
+        <TextView android:id="@+id/c15" style="@style/WCell" />
+        <TextView android:id="@+id/c16" style="@style/WCell" />
+        <TextView android:id="@+id/c17" style="@style/WCell" />
+        <TextView android:id="@+id/c18" style="@style/WCell" />
+        <TextView android:id="@+id/c19" style="@style/WCell" />
+        <TextView android:id="@+id/c20" style="@style/WCell" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+        <TextView android:id="@+id/c21" style="@style/WCell" />
+        <TextView android:id="@+id/c22" style="@style/WCell" />
+        <TextView android:id="@+id/c23" style="@style/WCell" />
+        <TextView android:id="@+id/c24" style="@style/WCell" />
+        <TextView android:id="@+id/c25" style="@style/WCell" />
+        <TextView android:id="@+id/c26" style="@style/WCell" />
+        <TextView android:id="@+id/c27" style="@style/WCell" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+        <TextView android:id="@+id/c28" style="@style/WCell" />
+        <TextView android:id="@+id/c29" style="@style/WCell" />
+        <TextView android:id="@+id/c30" style="@style/WCell" />
+        <TextView android:id="@+id/c31" style="@style/WCell" />
+        <TextView android:id="@+id/c32" style="@style/WCell" />
+        <TextView android:id="@+id/c33" style="@style/WCell" />
+        <TextView android:id="@+id/c34" style="@style/WCell" />
+    </LinearLayout>
+    <LinearLayout android:id="@+id/row6"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+        <TextView android:id="@+id/c35" style="@style/WCell" />
+        <TextView android:id="@+id/c36" style="@style/WCell" />
+        <TextView android:id="@+id/c37" style="@style/WCell" />
+        <TextView android:id="@+id/c38" style="@style/WCell" />
+        <TextView android:id="@+id/c39" style="@style/WCell" />
+        <TextView android:id="@+id/c40" style="@style/WCell" />
+        <TextView android:id="@+id/c41" style="@style/WCell" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/ft"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@color/w_mut"
+        android:textSize="11sp" />
+</LinearLayout>
